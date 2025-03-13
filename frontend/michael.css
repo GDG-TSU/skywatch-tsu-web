@@ -1,39 +1,61 @@
-header{
-    
-}
-
-.body{
-
-}
-
-.container{   
-
-}
-
-input{
-
-}
-
-.button{
-
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 
-.leftform{
-
+body{
+    background-color: lightblue;
+    width: 100vw;
+    height: 100vh;
 }
 
-.topright{
-
+.maincontainer{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 100px;
 }
 
-.bottomright{
-
+.top{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
 }
 
 .bottom{
-
+    background-color: white; 
+    border-radius: 10px;
+    width: 1070px;
+    height: 200px;
+   
 }
 
+.leftform{
+    background-color: white;
+    border-radius: 10px;
+    width: 350px;
+    height: 350px;
+}
 
+.rightside{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
 
+.topright{
+    background-color: white;
+    border-radius: 10px;
+    width: 700px;
+    height: 100px;
+    
+}
+
+.bottomright{
+    background-color: white;
+    border-radius: 10px;
+    width: 700px;
+    height: 230px;
+}
