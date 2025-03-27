@@ -84,3 +84,10 @@ button{
     background-color: royalblue;
 }
 
+.bottomrightcontainer{
+    display: flex;
+    flex-direction: row;
+    gap: 150px;
+    padding: 20px;
+}
+
