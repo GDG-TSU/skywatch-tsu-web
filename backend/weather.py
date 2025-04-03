@@ -23,6 +23,7 @@ class WeatherData:
 
 
     
-=======
+
 pprint.pprint(getweather('Nashville', 'TN', 'US', '[APIKEY]'))
->>>>>>> 393eb119ea9824c44578994479f6217e4246f813
+
+
