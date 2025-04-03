@@ -1,4 +1,4 @@
-import pip._vendor.requests
+import requests
 import pprint
 
 def getweather(city, state, country, apikey):
@@ -7,3 +7,18 @@ def getweather(city, state, country, apikey):
     return response.json()
 
 pprint.pprint(getweather('Nashville', 'TN', 'US', '7883ad61ed21bb9a011bfb77a06feae1'))
+
+
+
+class WeatherData:
+    def __init__(city_name, state_code, country_code, api_key):
+        weather_data = getweather(city_name, state_code, country_code, api_key)
+        weather = weather_data['weather'][0]
+        main = weather['main']
+        description = weather['description']
+        temp = weather_data['main']['temp']
+        icon = weather['icon']
+        return weather_data(main, description, temp, icon)
+
+
+    
