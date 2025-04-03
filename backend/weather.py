@@ -6,6 +6,7 @@ def getweather(city, state, country, apikey):
     response = pip._vendor.requests.get(f'http://api.openweathermap.org/data/2.5/weather?q={city},{state},{country}&appid={apikey}')
     return response.json()
 
+<<<<<<< HEAD
 pprint.pprint(getweather('Nashville', 'TN', 'US', '7883ad61ed21bb9a011bfb77a06feae1'))
 
 
@@ -22,3 +23,6 @@ class WeatherData:
 
 
     
+=======
+pprint.pprint(getweather('Nashville', 'TN', 'US', '[APIKEY]'))
+>>>>>>> 393eb119ea9824c44578994479f6217e4246f813
