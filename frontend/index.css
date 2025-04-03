@@ -48,13 +48,26 @@ body{
     gap: 30px;
 }
 
+
 .topright{
-    background-color: white;
-    border-radius: 10px;
-    width: 700px;
-    height: 130px;
-    
+    img {
+        height: 150px;
+        width: 700px;
+        border-radius: 10px;
+    }
+
+.text {
+    float: left;
+    color: white;
+    padding: 15px;
+    margin-bottom: 20px;
 }
+
+.centered {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 
 .bottomright{
     background-color: white;
