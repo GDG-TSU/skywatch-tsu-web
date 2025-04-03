@@ -10,7 +10,7 @@ def index():
         city = request.form['city']
         state = request.form['state']
         country = request.form['country']
-        api_key = '7883ad61ed21bb9a011bfb77a06feae1'
+        api_key = '7----1'
         data = get_weather(city, state, country)
         return render_template('index.html', weather_data=weather_data)
     return render_template('index.html')
