@@ -10,16 +10,14 @@ api_key = os.getenv('API_KEY')
 class WeatherData:
     main: str
     description: str
-    temperature: float
+    temp: float
     feels_like: float
-    humidity: float
+    humidity: int
     temp_min: float
     temp_max: float
-    humidity: int
     wind_speed: float
-    city_name: str
+    location: str
     country: str
-    state: str
 
 def get_weather_data(city_name, state_code, country_code, API_key):
     url = f'https://api.openweathermap.org/data/2.5/weather?q={city_name},{state_code},{country_code}&appid={API_key}&units=imperial'
@@ -40,8 +38,8 @@ def get_weather_data(city_name, state_code, country_code, API_key):
         humidity = main.get('humidity'),
         temp_min = main.get('temp_min'),
         temp_max = main.get('temp_max'),
-        speed = wind.get('speed'),
-        name = data.get('name'),
+        wind_speed = wind.get('speed'),
+        location = data.get('name'),
         country = sys.get('country')
     )
       
