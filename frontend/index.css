@@ -152,7 +152,6 @@
   .form-content {
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Increased gap for better spacing */
     margin-top: 10px;
   }
   
