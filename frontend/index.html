@@ -5,39 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sky-Watch-TSU</title>
     <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <div class="header-container">
-        <div class="header-image">
-            <img class="img-weatherlogo" src="../assets/weather.png" alt="SkyWatch TSU">
+    <header>
+        <div class="header-container">
+            <div class="header-image">
+                <img class="img-weatherlogo" src="../assets/weather.png" alt="SkyWatch TSU">
+            </div>
+            <div class="header-text">
+                <h1>SkyWatch TSU</h1>
+            </div>
         </div>
-
-
-        <div class="header-text">
-            <h1>SkyWatch TSU</h1>
-        </div>
-
-    </div>
-
+    </header>
+    
     <div class="maincontainer">
-
         <div class="top">
             <div class="leftform">
-                <form action="michael.php" method="post">
-                    <label for="fname">First Name:</label><br>
-                    <input type="text" id="fname" name="fname" value=""><br>
-                    <label for="lname">Last Name:</label><br>
-                    <input type="text" id="lname" name="lname" value=""><br>
-                    <label for="email">Email:</label><br>
-                    <input type="text" id="email" name="email" value=""><br>
-                    <label for="phone">Phone:</label><br>
-                    <input type="text" id="phone" name="phone" value=""><br>    
+                <h2>Enter Your Information</h2>
+                <form action="michael.php" method="post" class="form-content">
+                    <label for="country"><strong>Country</strong></label><br>
+                    <input type="text" id="country" name="country" placeholder="Enter your country"><br>
+                    
+                    <label for="state"><strong>State</strong></label><br>
+                    <input type="text" id="state" name="state" placeholder="Enter your state"><br>
+                    
+                    <label for="city"><strong>City</strong></label><br>  
+                    <input type="text" id="city" name="city" placeholder="Enter your city"><br>
+                    
+                    <button type="submit">Submit</button>
                 </form>
             </div>
 
             <div class="rightside">
                 <div class="topright">
-                    <p>Lorem ipsum dolor, sitt consectetur adipisicing elit. Vel, fugit. Dolorem nobis, nostrum enim perferendis odio temporibus similique aspernatur cupiditate impedit ipsam saepe et laboriosam eveniet cum neque ab repellendus.</p>
+                    <img src="../assets/weatherIcons/cloudy.jpg" alt="Weather background" class="weather-image"> 
+                    <div class="weather-overlay">
+                        <div class="topRightContent">
+                            <h1 class="number">44°</h1>
+                            <h2 class="location">Nashville, Tennessee</h2>  
+                        </div>
+                        <div class="topRightImage">
+                            <img class="topRightIcon" src="../assets/weatherIcons/clouds.png" alt="Weather icon"> 
+                        </div>
+                    </div>
                 </div>
 
                 <div class="bottomright">
@@ -48,56 +62,64 @@
                     
                     <div class="bottomRightBody">
                         <div class="item">
-                            <img src=""alt="weather icon">
-                            <p class="pgraph">description</p>
-                            <p class="pgraph">20</p>
+                            <img class="itemlogo" src="../assets/Icons/info.png" alt="weather icon">
+                            <div class="item-text">
+                                <p class="pgraph-H">Description</p>
+                                <p class="pgraph">20</p>
+                            </div>
                         </div>
 
                         <div class="item">
-                            <img src=""alt="weather icon">
-                            <p class="pgraph">temperature</p>
-                            <p class="pgraph">20</p>
+                            <img class="itemlogo" src="../assets/Icons/thermometer-3.png" alt="weather icon">
+                            <div class="item-text">
+                                <p class="pgraph-H">Temperature</p>
+                                <p class="pgraph">20</p>
+                            </div>
                         </div>
 
                         <div class="item">
-                            <img src=""alt="weather icon">
-                            <p class="pgraph">feels like</p>
-                            <p class="pgraph">20</p>
+                            <img class="itemlogo" src="../assets/Icons/feedback.png" alt="weather icon">
+                            <div class="item-text">
+                                <p class="pgraph-H">Feels like</p>
+                                <p class="pgraph">20</p>
+                            </div>
                         </div>
 
                         <div class="item">
-                            <img src=""alt="weather icon">
-                            <p class="pgraph">humidity</p>
-                            <p class="pgraph">20</p>
+                            <img class="itemlogo" src="../assets/Icons/humidity.png" alt="weather icon">
+                            <div class="item-text">
+                                <p class="pgraph-H">Humidity</p>
+                                <p class="pgraph">20</p>
+                            </div>
                         </div>
 
                         <div class="item">
-                            <img src=""alt="weather icon">
-                            <p class="pgraph">low/high temp</p>
-                            <p class="pgraph">20</p>
+                            <img class="itemlogo" src="../assets/Icons/speedometer.png" alt="weather icon">
+                            <div class="item-text">
+                                <p class="pgraph-H">Min/Max Temp</p>
+                                <p class="pgraph">20</p>
+                            </div>
                         </div>
 
                         <div class="item">
-                            <img src=""alt="weather icon">
-                            <p class="pgraph">wind speed</p>
-                            <p class="pgraph">20</p>
+                            <img class="itemlogo" src="../assets/Icons/wind-3.png" alt="weather icon">
+                            <div class="item-text">
+                                <p class="pgraph-H">Wind Speed</p>
+                                <p class="pgraph">20</p>
+                            </div>
                         </div>           
-
                     </div>
                 </div>
             </div>
-            
         </div>
 
         <div class="bottom">
-            <p>Lorem ipsum dolor sit amjkknket consectetur adipisicing elit. Labore, earum accusamus odit voluptatem maiores eaque ipsam culpa unde sit expedita dicta modi dolorum vitae illo cum! Quia natus quidem architecto?</p>
+            <h3 class="h3">About SkyWatch TSU</h3>
+            <p>
+                SkyWatch TSU is a dynamic weather data platform designed to provide accurate and up-to-date weather information at your fingertips. Built by the talented GDG team at Tennessee State University, SkyWatch TSU harnesses the power of cutting-edge APIs to deliver real-time weather insights. Simply enter your location, and SkyWatch TSU will fetch the latest weather data, including temperature, precipitation, humidity, and more. Whether you're planning your day or staying prepared for unexpected changes, SkyWatch TSU has you covered.
+                Our mission is to make weather information easily accessible and user-friendly for everyone at TSU and beyond. Stay informed and stay prepared with SkyWatch TSU!
+            </p>
         </div>
-    
-        
     </div>
-   
- 
-
-  
 </body>
 </html>

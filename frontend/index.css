@@ -1,122 +1,242 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
 }
 
-
-body{
-    background-color: #D5E4FF;
-    width: 100vw;
-    height: 100vh;
-}
-
-.maincontainer{
+body {
+    background-color: lightblue;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    justify-content: center;
-    align-items: center;
+    align-items: center; /* Keep this */
+    padding: 20px;
+    width: 100%; /* Add this line */
 }
 
-.top{
+header {
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 20px;
+}
+
+.header-container {
     display: flex;
     flex-direction: row;
-    justify-items: center;
-    align-items: center;
-    gap: 30px;
-}
-
-.bottom{
-    background-color: white; 
-    border-radius: 10px;
-    width: 1065px;
-    height: 200px;
-   
-}
-
-.leftform{
-    background-color: white;
-    border-radius: 10px;
-    width: 330px;
-    height: 380px;
-}
-
-.rightside{
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-.topright{
-    background-color: white;
-    border-radius: 10px;
-    width: 700px;
-    height: 130px;
-    
-}
-
-.bottomright{
-    background-color: white;
-    border-radius: 10px;
-    width: 700px;
-    height: 220px;
-}
-
-input, textarea{
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid grey;
-    border-radius: 5px;
-}   
-
-
-button{
-    width: 55%;
-    padding: 10px;
-    margin: 30px 60px;
-    border: none;
-    border-radius: 4px;
-    color: white;
-    background-color: royalblue;
-}
-
-.bottomRightHeader{
-.header-container{
-    display: flex;  
-    flex-direction: row; 
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     gap: 10px;
 }
 
-.img-weatherlogo{
+.img-weatherlogo {
     width: 50px;
     margin: 10px;
 }
 
-.header-text{
-    display: flex;
+.header-text {
     font-size: 15px;
+}
+
+.maincontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto; /* Add this line */
+}
+
+.top {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.bottom {
+    background-color: white;
+    border-radius: 10px;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.bottom p {
+    font-size: 15px;
+    line-height: 25px;
+}
+
+.leftform {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 330px;
+    padding: 20px;
+}
+
+.rightside {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    flex: 1;
+    min-width: 300px;
+}
+
+.topright {
+    background-color: white;
+    border-radius: 10px;
+    width: 100%;
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+}
+
+.weather-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.topRightContent {
+    z-index: 2;
+}
+
+.topright .weather-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.bottomright {
+    background-color: white;
+    border-radius: 10px;
+    width: 100%;
+    padding: 20px;
+    padding-left: 20px;
+}
+
+.form-content{
+    display: flex;
+    flex-direction: column; 
+    gap: 0px;
+    margin-top: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    background-color: #0EABEC;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0474a5;
+}
+
+.bottomRightHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
 }
 
 .bottomRightBody {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    padding-left: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 50px;
+    align-content: center;
+    margin-bottom: 20px;
 }
 
-.pgraph{
+.pgraph {
     font-size: 13px;
-    padding: 10px
 }
 
-.item{
+.item {
     display: flex;
-    flex-direction: row;
-    gap: 10px;
-    text-align: center;
     align-items: center;
+    gap: 10px;
+}
+
+.item-text {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.h3 {
+    text-align: center;
+}
+
+.itemlogo {
+    width: 40px;
+    height: 40px;
+}
+
+.pgraph-H {
+    font-weight: 500;
+}
+
+.number {
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.location {
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.topRightIcon {
+    width: 80px;
+    height: 80px;
+    z-index: 2;
+}
+
+@media (max-width: 768px) {
+    .top {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .leftform, .rightside {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .bottomRightHeader {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .bottomRightBody {
+        grid-template-columns: 1fr;
+    }
 }
