@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sky-Watch-TSU</title>
-    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='index.css') }}"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,7 +22,7 @@
         <div class="header-image">
           <img
             class="img-weatherlogo"
-            src="../assets/weather.png"
+            src="{{ url_for('static', filename='assets/weather.png') }}"
             alt="SkyWatch TSU"
           />
         </div>
@@ -33,31 +36,31 @@
       <div class="top">
         <div class="leftform">
           <h2>Enter Your Information</h2>
-          <form action="michael.php" method="post" class="form-content">
-            <label for="country"><strong>Country</strong></label
+          <form action="/" method="post" class="form-content">
+            <label for="countryName"><strong>Country</strong></label
             ><br />
             <input
               type="text"
-              id="country"
-              name="country"
+              id="countryName"
+              name="countryName"
               placeholder="Enter your country"
             /><br />
 
-            <label for="state"><strong>State</strong></label
+            <label for="stateName"><strong>State</strong></label
             ><br />
             <input
               type="text"
-              id="state"
-              name="state"
+              id="stateName"
+              name="stateName"
               placeholder="Enter your state"
             /><br />
 
-            <label for="city"><strong>City</strong></label
+            <label for="cityName"><strong>City</strong></label
             ><br />
             <input
               type="text"
-              id="city"
-              name="city"
+              id="cityName"
+              name="cityName"
               placeholder="Enter your city"
             /><br />
 
@@ -67,102 +70,157 @@
 
         <div class="rightside">
           <div class="topright">
+            {% if weather %}
             <img
-              src="../assets/weatherIcons/cloudy.jpg"
+              src="{{ url_for('static', filename='assets/weatherIcons/cloudy.jpg') }}"
               alt="Weather background"
               class="weather-image"
             />
             <div class="weather-overlay">
               <div class="topRightContent">
-                <h1 class="number">44°</h1>
-                <h2 class="location">Nashville, Tennessee</h2>
+                <h1 class="number">{{ weather.temp }}°</h1>
+                <h2 class="location">
+                  {{ weather.location }}, {{ weather.country }}
+                </h2>
               </div>
               <div class="topRightImage">
                 <img
                   class="topRightIcon"
-                  src="../assets/weatherIcons/clouds.png"
+                  src="{{ url_for('static', filename='assets/weatherIcons/clouds.png') }}"
                   alt="Weather icon"
                 />
               </div>
             </div>
+            {% else %}
+            <img
+              src="{{ url_for('static', filename='assets/weatherIcons/cloudy.jpg') }}"
+              alt="Weather background"
+              class="weather-image"
+            />
+            <div class="weather-overlay">
+              <div class="topRightContent">
+                <h1 class="number">--°</h1>
+                <h2 class="location">Enter location details</h2>
+              </div>
+              <div class="topRightImage">
+                <img
+                  class="topRightIcon"
+                  src="{{ url_for('static', filename='assets/weatherIcons/clouds.png') }}"
+                  alt="Weather icon"
+                />
+              </div>
+            </div>
+            {% endif %}
           </div>
 
           <div class="bottomright">
             <div class="bottomRightHeader">
-              <h4>Weather today in Nashville, Tennessee</h4>
-              <h4>Tuesday, February 11</h4>
+              {% if weather %}
+              <h4>
+                Weather today in {{ weather.location }}, {{ weather.country }}
+              </h4>
+              {% else %}
+              <h4>Weather today</h4>
+              {% endif %}
+              <h4 id="currentDate">Loading date...</h4>
             </div>
 
             <div class="bottomRightBody">
               <div class="item">
                 <img
                   class="itemlogo"
-                  src="../assets/Icons/info.png"
+                  src="{{ url_for('static', filename='assets/Icons/info.png') }}"
                   alt="weather icon"
                 />
                 <div class="item-text">
                   <p class="pgraph-H">Description</p>
-                  <p class="pgraph">20</p>
+                  {% if weather %}
+                  <p class="pgraph">{{ weather.description }}</p>
+                  {% else %}
+                  <p class="pgraph">--</p>
+                  {% endif %}
                 </div>
               </div>
 
               <div class="item">
                 <img
                   class="itemlogo"
-                  src="../assets/Icons/thermometer-3.png"
+                  src="{{ url_for('static', filename='assets/Icons/thermometer-3.png') }}"
                   alt="weather icon"
                 />
                 <div class="item-text">
                   <p class="pgraph-H">Temperature</p>
-                  <p class="pgraph">20</p>
+                  {% if weather %}
+                  <p class="pgraph">{{ weather.temp }}°F</p>
+                  {% else %}
+                  <p class="pgraph">--</p>
+                  {% endif %}
                 </div>
               </div>
 
               <div class="item">
                 <img
                   class="itemlogo"
-                  src="../assets/Icons/feedback.png"
+                  src="{{ url_for('static', filename='assets/Icons/feedback.png') }}"
                   alt="weather icon"
                 />
                 <div class="item-text">
                   <p class="pgraph-H">Feels like</p>
-                  <p class="pgraph">20</p>
+                  {% if weather %}
+                  <p class="pgraph">{{ weather.feels_like }}°F</p>
+                  {% else %}
+                  <p class="pgraph">--</p>
+                  {% endif %}
                 </div>
               </div>
 
               <div class="item">
                 <img
                   class="itemlogo"
-                  src="../assets/Icons/humidity.png"
+                  src="{{ url_for('static', filename='assets/Icons/humidity.png') }}"
                   alt="weather icon"
                 />
                 <div class="item-text">
                   <p class="pgraph-H">Humidity</p>
-                  <p class="pgraph">20</p>
+                  {% if weather %}
+                  <p class="pgraph">{{ weather.humidity }}%</p>
+                  {% else %}
+                  <p class="pgraph">--</p>
+                  {% endif %}
                 </div>
               </div>
 
               <div class="item">
                 <img
                   class="itemlogo"
-                  src="../assets/Icons/speedometer.png"
+                  src="{{ url_for('static', filename='assets/Icons/speedometer.png') }}"
                   alt="weather icon"
                 />
                 <div class="item-text">
                   <p class="pgraph-H">Min/Max Temp</p>
-                  <p class="pgraph">20</p>
+                  {% if weather %}
+                  <p class="pgraph">
+                    {{ weather.temp_min }}°F / {{ weather.temp_max }}°F
+                  </p>
+                  {% else %}
+                  <p class="pgraph">--</p>
+                  {% endif %}
                 </div>
               </div>
 
               <div class="item">
                 <img
                   class="itemlogo"
-                  src="../assets/Icons/wind-3.png"
+                  src="{{ url_for('static', filename='assets/Icons/wind-3.png') }}"
                   alt="weather icon"
                 />
                 <div class="item-text">
                   <p class="pgraph-H">Wind Speed</p>
-                  <p class="pgraph">20</p>
+                  {% if weather %}
+                  <p class="pgraph">{{ weather.wind_speed }} mph</p>
+                  {% else %}
+                  <p class="pgraph">--</p>
+                  {% endif %}
                 </div>
               </div>
             </div>
@@ -187,5 +245,18 @@
         </p>
       </div>
     </div>
+
+    <script>
+      // Add current date
+      function setCurrentDate() {
+        const dateElement = document.getElementById("currentDate");
+        const options = { weekday: "long", month: "long", day: "numeric" };
+        const currentDate = new Date().toLocaleDateString("en-US", options);
+        dateElement.textContent = currentDate;
+      }
+
+      // Run when page loads
+      document.addEventListener("DOMContentLoaded", setCurrentDate);
+    </script>
   </body>
 </html>

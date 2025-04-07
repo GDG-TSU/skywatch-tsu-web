@@ -10,6 +10,7 @@ api_key = os.getenv('API_KEY')
 class WeatherData:
     main: str
     description: str
+    icon: str
     temp: float
     feels_like: float
     humidity: int
@@ -33,6 +34,7 @@ def get_weather_data(city_name, state_code, country_code, API_key):
     return WeatherData (
         main = weather[0].get('main'),
         description = weather[0].get('description'),
+        icon = weather[0].get('icon'),
         temp = main.get('temp'),
         feels_like = main.get('feels_like'),
         humidity = main.get('humidity'),
@@ -45,4 +47,5 @@ def get_weather_data(city_name, state_code, country_code, API_key):
       
 def main(city_name, state_code, country_code):
     weather_data = get_weather_data(city_name, state_code, country_code, api_key)
+    
     return weather_data
