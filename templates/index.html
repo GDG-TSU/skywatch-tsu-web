@@ -1,262 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sky-Watch-TSU</title>
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='index.css') }}"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>Sky-Watch-TSU</title>
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='index.css') }}"
+        />
+        <link
+            rel="preconnect"
+            href="https://fonts.googleapis.com"
+        />
+        <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossorigin
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
+            rel="stylesheet"
+        />
+    </head>
 
-  <body>
-    <header>
-      <div class="header-container">
-        <div class="header-image">
-          <img
-            class="img-weatherlogo"
-            src="{{ url_for('static', filename='assets/weather.png') }}"
-            alt="SkyWatch TSU"
-          />
-        </div>
-        <div class="header-text">
-          <h1>SkyWatch TSU</h1>
-        </div>
-      </div>
-    </header>
-
-    <div class="maincontainer">
-      <div class="top">
-        <div class="leftform">
-          <h2>Enter Your Information</h2>
-          <form action="/" method="post" class="form-content">
-            <label for="countryName"><strong>Country</strong></label
-            ><br />
-            <input
-              type="text"
-              id="countryName"
-              name="countryName"
-              placeholder="Enter your country"
-            /><br />
-
-            <label for="stateName"><strong>State</strong></label
-            ><br />
-            <input
-              type="text"
-              id="stateName"
-              name="stateName"
-              placeholder="Enter your state"
-            /><br />
-
-            <label for="cityName"><strong>City</strong></label
-            ><br />
-            <input
-              type="text"
-              id="cityName"
-              name="cityName"
-              placeholder="Enter your city"
-            /><br />
-
-            <button type="submit">Submit</button>
-          </form>
-        </div>
-
-        <div class="rightside">
-          <div class="topright">
-            {% if weather %}
-            <img
-              src="{{ url_for('static', filename='assets/weatherIcons/cloudy.jpg') }}"
-              alt="Weather background"
-              class="weather-image"
-            />
-            <div class="weather-overlay">
-              <div class="topRightContent">
-                <h1 class="number">{{ weather.temp }}°</h1>
-                <h2 class="location">
-                  {{ weather.location }}, {{ weather.country }}
-                </h2>
-              </div>
-              <div class="topRightImage">
-                <img
-                  class="topRightIcon"
-                  src="{{ url_for('static', filename='assets/weatherIcons/clouds.png') }}"
-                  alt="Weather icon"
-                />
-              </div>
+    <body>
+        <header>
+            <div class="header-container">
+                <div class="header-image">
+                    <img
+                        class="img-weatherlogo"
+                        src="{{ url_for('static', filename='assets/weather.png') }}"
+                        alt="SkyWatch TSU"
+                    />
+                </div>
+                <div class="header-text">
+                    <h1>SkyWatch TSU</h1>
+                </div>
             </div>
-            {% else %}
-            <img
-              src="{{ url_for('static', filename='assets/weatherIcons/cloudy.jpg') }}"
-              alt="Weather background"
-              class="weather-image"
-            />
-            <div class="weather-overlay">
-              <div class="topRightContent">
-                <h1 class="number">--°</h1>
-                <h2 class="location">Enter location details</h2>
-              </div>
-              <div class="topRightImage">
-                <img
-                  class="topRightIcon"
-                  src="{{ url_for('static', filename='assets/weatherIcons/clouds.png') }}"
-                  alt="Weather icon"
-                />
-              </div>
+        </header>
+
+        <div class="maincontainer">
+            <div class="top">
+                <div class="leftform">
+                    <h2>Enter Your Information</h2>
+                    <form
+                        action="/"
+                        method="post"
+                        class="form-content"
+                    >
+                        <label for="countryName"><strong>Country</strong></label
+                        ><br />
+                        <input
+                            type="text"
+                            id="countryName"
+                            name="countryName"
+                            placeholder="Enter your country"
+                        /><br />
+
+                        <label for="stateName"><strong>State</strong></label
+                        ><br />
+                        <input
+                            type="text"
+                            id="stateName"
+                            name="stateName"
+                            placeholder="Enter your state"
+                        /><br />
+
+                        <label for="cityName"><strong>City</strong></label
+                        ><br />
+                        <input
+                            type="text"
+                            id="cityName"
+                            name="cityName"
+                            placeholder="Enter your city"
+                        /><br />
+
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+
+                <div class="rightside">
+                    <div class="topright">
+                        {% if weather %}
+                        <img
+                            src="{{ url_for('static', filename='assets/weatherIcons/' + weather.background_image) }}"
+                            alt="Weather background"
+                            class="weather-image"
+                        />
+                        <div class="weather-overlay">
+                            <div class="topRightContent">
+                                <h1 class="number">{{ weather.temp }}°</h1>
+                                <h2 class="location">
+                                    {{ weather.location }}, {{ weather.country
+                                    }}
+                                </h2>
+                            </div>
+                            <div class="topRightImage">
+                                <img
+                                    class="topRightIcon"
+                                    src="{{ url_for('static', filename='assets/weatherIcons/' + weather.icon_image) }}"
+                                    alt="Weather icon"
+                                />
+                            </div>
+                        </div>
+                        {% else %}
+                        <img
+                            src="{{ url_for('static', filename='assets/weatherIcons/cloudy.jpg') }}"
+                            alt="Weather background"
+                            class="weather-image"
+                        />
+                        <div class="weather-overlay">
+                            <div class="topRightContent">
+                                <h1 class="number">--°</h1>
+                                <h2 class="location">Enter location details</h2>
+                            </div>
+                            <div class="topRightImage">
+                                <img
+                                    class="topRightIcon"
+                                    src="{{ url_for('static', filename='assets/weatherIcons/clouds.png') }}"
+                                    alt="Weather icon"
+                                />
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="bottomright">
+                        <div class="bottomRightHeader">
+                            {% if weather %}
+                            <h4>
+                                Weather today in {{ weather.location }}, {{
+                                weather.country }}
+                            </h4>
+                            {% else %}
+                            <h4>Weather today</h4>
+                            {% endif %}
+                            <h4 id="currentDate">Loading date...</h4>
+                        </div>
+
+                        <div class="bottomRightBody">
+                            <div class="item">
+                                <img
+                                    class="itemlogo"
+                                    src="{{ url_for('static', filename='assets/Icons/info.png') }}"
+                                    alt="weather icon"
+                                />
+                                <div class="item-text">
+                                    <p class="pgraph-H">Description</p>
+                                    {% if weather %}
+                                    <p class="pgraph">
+                                        {{ weather.description }}
+                                    </p>
+                                    {% else %}
+                                    <p class="pgraph">--</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <img
+                                    class="itemlogo"
+                                    src="{{ url_for('static', filename='assets/Icons/thermometer-3.png') }}"
+                                    alt="weather icon"
+                                />
+                                <div class="item-text">
+                                    <p class="pgraph-H">Temperature</p>
+                                    {% if weather %}
+                                    <p class="pgraph">{{ weather.temp }}°F</p>
+                                    {% else %}
+                                    <p class="pgraph">--</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <img
+                                    class="itemlogo"
+                                    src="{{ url_for('static', filename='assets/Icons/feedback.png') }}"
+                                    alt="weather icon"
+                                />
+                                <div class="item-text">
+                                    <p class="pgraph-H">Feels like</p>
+                                    {% if weather %}
+                                    <p class="pgraph">
+                                        {{ weather.feels_like }}°F
+                                    </p>
+                                    {% else %}
+                                    <p class="pgraph">--</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <img
+                                    class="itemlogo"
+                                    src="{{ url_for('static', filename='assets/Icons/humidity.png') }}"
+                                    alt="weather icon"
+                                />
+                                <div class="item-text">
+                                    <p class="pgraph-H">Humidity</p>
+                                    {% if weather %}
+                                    <p class="pgraph">
+                                        {{ weather.humidity }}%
+                                    </p>
+                                    {% else %}
+                                    <p class="pgraph">--</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <img
+                                    class="itemlogo"
+                                    src="{{ url_for('static', filename='assets/Icons/speedometer.png') }}"
+                                    alt="weather icon"
+                                />
+                                <div class="item-text">
+                                    <p class="pgraph-H">Min/Max Temp</p>
+                                    {% if weather %}
+                                    <p class="pgraph">
+                                        {{ weather.temp_min }}°F / {{
+                                        weather.temp_max }}°F
+                                    </p>
+                                    {% else %}
+                                    <p class="pgraph">--</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <img
+                                    class="itemlogo"
+                                    src="{{ url_for('static', filename='assets/Icons/wind-3.png') }}"
+                                    alt="weather icon"
+                                />
+                                <div class="item-text">
+                                    <p class="pgraph-H">Wind Speed</p>
+                                    {% if weather %}
+                                    <p class="pgraph">
+                                        {{ weather.wind_speed }} mph
+                                    </p>
+                                    {% else %}
+                                    <p class="pgraph">--</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            {% endif %}
-          </div>
 
-          <div class="bottomright">
-            <div class="bottomRightHeader">
-              {% if weather %}
-              <h4>
-                Weather today in {{ weather.location }}, {{ weather.country }}
-              </h4>
-              {% else %}
-              <h4>Weather today</h4>
-              {% endif %}
-              <h4 id="currentDate">Loading date...</h4>
+            <div class="bottom">
+                <h3 class="h3">About SkyWatch TSU</h3>
+                <p>
+                    SkyWatch TSU is a dynamic weather data platform designed to
+                    provide accurate and up-to-date weather information at your
+                    fingertips. Built by the talented GDG team at Tennessee
+                    State University, SkyWatch TSU harnesses the power of
+                    cutting-edge APIs to deliver real-time weather insights.
+                    Simply enter your location, and SkyWatch TSU will fetch the
+                    latest weather data, including temperature, precipitation,
+                    humidity, and more. Whether you're planning your day or
+                    staying prepared for unexpected changes, SkyWatch TSU has
+                    you covered. Our mission is to make weather information
+                    easily accessible and user-friendly for everyone at TSU and
+                    beyond. Stay informed and stay prepared with SkyWatch TSU!
+                </p>
             </div>
-
-            <div class="bottomRightBody">
-              <div class="item">
-                <img
-                  class="itemlogo"
-                  src="{{ url_for('static', filename='assets/Icons/info.png') }}"
-                  alt="weather icon"
-                />
-                <div class="item-text">
-                  <p class="pgraph-H">Description</p>
-                  {% if weather %}
-                  <p class="pgraph">{{ weather.description }}</p>
-                  {% else %}
-                  <p class="pgraph">--</p>
-                  {% endif %}
-                </div>
-              </div>
-
-              <div class="item">
-                <img
-                  class="itemlogo"
-                  src="{{ url_for('static', filename='assets/Icons/thermometer-3.png') }}"
-                  alt="weather icon"
-                />
-                <div class="item-text">
-                  <p class="pgraph-H">Temperature</p>
-                  {% if weather %}
-                  <p class="pgraph">{{ weather.temp }}°F</p>
-                  {% else %}
-                  <p class="pgraph">--</p>
-                  {% endif %}
-                </div>
-              </div>
-
-              <div class="item">
-                <img
-                  class="itemlogo"
-                  src="{{ url_for('static', filename='assets/Icons/feedback.png') }}"
-                  alt="weather icon"
-                />
-                <div class="item-text">
-                  <p class="pgraph-H">Feels like</p>
-                  {% if weather %}
-                  <p class="pgraph">{{ weather.feels_like }}°F</p>
-                  {% else %}
-                  <p class="pgraph">--</p>
-                  {% endif %}
-                </div>
-              </div>
-
-              <div class="item">
-                <img
-                  class="itemlogo"
-                  src="{{ url_for('static', filename='assets/Icons/humidity.png') }}"
-                  alt="weather icon"
-                />
-                <div class="item-text">
-                  <p class="pgraph-H">Humidity</p>
-                  {% if weather %}
-                  <p class="pgraph">{{ weather.humidity }}%</p>
-                  {% else %}
-                  <p class="pgraph">--</p>
-                  {% endif %}
-                </div>
-              </div>
-
-              <div class="item">
-                <img
-                  class="itemlogo"
-                  src="{{ url_for('static', filename='assets/Icons/speedometer.png') }}"
-                  alt="weather icon"
-                />
-                <div class="item-text">
-                  <p class="pgraph-H">Min/Max Temp</p>
-                  {% if weather %}
-                  <p class="pgraph">
-                    {{ weather.temp_min }}°F / {{ weather.temp_max }}°F
-                  </p>
-                  {% else %}
-                  <p class="pgraph">--</p>
-                  {% endif %}
-                </div>
-              </div>
-
-              <div class="item">
-                <img
-                  class="itemlogo"
-                  src="{{ url_for('static', filename='assets/Icons/wind-3.png') }}"
-                  alt="weather icon"
-                />
-                <div class="item-text">
-                  <p class="pgraph-H">Wind Speed</p>
-                  {% if weather %}
-                  <p class="pgraph">{{ weather.wind_speed }} mph</p>
-                  {% else %}
-                  <p class="pgraph">--</p>
-                  {% endif %}
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
 
-      <div class="bottom">
-        <h3 class="h3">About SkyWatch TSU</h3>
-        <p>
-          SkyWatch TSU is a dynamic weather data platform designed to provide
-          accurate and up-to-date weather information at your fingertips. Built
-          by the talented GDG team at Tennessee State University, SkyWatch TSU
-          harnesses the power of cutting-edge APIs to deliver real-time weather
-          insights. Simply enter your location, and SkyWatch TSU will fetch the
-          latest weather data, including temperature, precipitation, humidity,
-          and more. Whether you're planning your day or staying prepared for
-          unexpected changes, SkyWatch TSU has you covered. Our mission is to
-          make weather information easily accessible and user-friendly for
-          everyone at TSU and beyond. Stay informed and stay prepared with
-          SkyWatch TSU!
-        </p>
-      </div>
-    </div>
+        <script>
+            // Add current date
+            function setCurrentDate() {
+                const dateElement = document.getElementById('currentDate');
+                const options = {
+                    weekday: 'long',
+                    month: 'long',
+                    day: 'numeric',
+                };
+                const currentDate = new Date().toLocaleDateString(
+                    'en-US',
+                    options
+                );
+                dateElement.textContent = currentDate;
+            }
 
-    <script>
-      // Add current date
-      function setCurrentDate() {
-        const dateElement = document.getElementById("currentDate");
-        const options = { weekday: "long", month: "long", day: "numeric" };
-        const currentDate = new Date().toLocaleDateString("en-US", options);
-        dateElement.textContent = currentDate;
-      }
-
-      // Run when page loads
-      document.addEventListener("DOMContentLoaded", setCurrentDate);
-    </script>
-  </body>
+            // Run when page loads
+            document.addEventListener('DOMContentLoaded', setCurrentDate);
+        </script>
+    </body>
 </html>
